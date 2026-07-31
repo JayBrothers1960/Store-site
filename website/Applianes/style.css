@@ -1,0 +1,259 @@
+/* --- Logic for Tabs (No JS) --- */
+
+:root { --red: #d32f2f; --apple-gray: #fbfbfb; }
+body { font-family: -apple-system, sans-serif; margin: 0; background: #fff; }
+
+/* Centered Navbar */
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; background: #fff; }
+.logo-container { display: flex; align-items: center; gap: 10px; flex: 1; }
+.logo-container img { height: 40px; }
+.brand-name { font-weight: bold; color: var(--red); font-size: 1.4rem; }
+.nav-links { display: flex; list-style: none; gap: 25px; flex: 2; justify-content: center; padding: 0; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 600; }
+.nav-spacer { flex: 1; }
+.logo-container a {
+    display: flex;          /* Makes img and text sit side-by-side */
+    align-items: center;    /* Centers text vertically with the logo */
+    text-decoration: none;  /* Removes the underline */
+    gap: 10px;              /* Keeps the space between logo and text */
+}
+
+/* Megamenu Container */
+.dropdown {
+    position: static; /* Required for full-width megamenu */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%; /* Full width like Apple's site */
+    background: #fff;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    padding: 40px 10%;
+    z-index: 1000;
+    border-top: 1px solid #f2f2f2;
+}
+
+/* Horizontal Column Layout */
+.megamenu-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Category Headers (e.g., Sewing Machines, Fans) */
+.megamenu-column h3 {
+    font-size: 0.8rem;
+    color: #86868b; /* Apple-style muted gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.megamenu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.megamenu-column li {
+    margin-bottom: 12px;
+}
+
+.megamenu-column a {
+    font-size: 1.5rem; /* Larger bold text for main sub-items */
+    font-weight: 600;
+    color: #1d1d1f;
+    transition: color 0.2s;
+}
+
+.megamenu-column a:hover {
+    color: #0066cc;
+}
+
+/* Apple-Style Strip */
+.category-strip { display: flex; justify-content: center; gap: 50px; padding: 40px 0; background: var(--apple-gray); }
+.cat-item { text-align: center; }
+.cat-item a { text-decoration: none; color: #1d1d1f; font-size: 0.85rem; font-weight: 500; }
+.cat-circle { width: 100px; height: 100px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.cat-circle img { width: 70%; object-fit: contain; }
+
+/* Hide the radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Hide all content sections by default */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease; /* Adds that smooth Apple-style fade */
+}
+
+/* Show content based on which radio is checked */
+#tab1:checked ~ .product-container #content1,
+#tab2:checked ~ .product-container #content2,
+#tab3:checked ~ .product-container #content3,
+#tab4:checked ~ .product-container #content4 {
+    display: block;
+}
+
+/* Style the buttons when their specific radio is checked */
+#tab1:checked ~ .product-tabs label[for="tab1"],
+#tab2:checked ~ .product-tabs label[for="tab2"],
+#tab3:checked ~ .product-tabs label[for="tab3"],
+#tab4:checked ~ .product-tabs label[for="tab4"] {
+    background: #ff6600;
+    color: white;
+}
+
+/* --- Visual Styles --- */
+
+.product-tabs {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.tab-btn {
+    padding: 15px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    margin: 0 5px;
+    transition: 0.3s;
+    color: #555;
+}
+
+.product-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.product-image-box img {
+    width: 100%;
+    max-width: 350px;
+    object-fit: contain;
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 15px 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-container img { height: 40px; }
+
+/* Simple fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Premium Order Button */
+.order-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    background-color: #000; /* Sleek Black like Apple */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px; /* Rounded pill shape */
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+
+/* Shopping Logo (The Span) */
+.order-btn span {
+    font-size: 18px;
+}
+
+/* Hover Effect */
+.order-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* WhatsApp Variant (If you prefer the Green look) */
+/* Just change background-color to #25D366 and border to #25D366 if you want it green */
+
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 60px 10% 20px;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand img {
+    height: 60px;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1); /* Optional: makes logo white for dark footer */
+}
+
+.footer-contact h4, .footer-social h4 {
+    color: #ff6600; /* Matching your orange theme */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.footer-contact a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25d366; /* WhatsApp Green */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+

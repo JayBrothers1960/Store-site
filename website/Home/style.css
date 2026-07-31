@@ -1,0 +1,352 @@
+:root { --red: #d32f2f; --apple-gray: #fbfbfb; }
+body { font-family: -apple-system, sans-serif; margin: 0; background: #fff; }
+
+/* Centered Navbar */
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; background: #fff; }
+.logo-container { display: flex; align-items: center; gap: 10px; flex: 1; }
+.logo-container img { height: 40px; }
+.brand-name { font-weight: bold; color: var(--red); font-size: 1.4rem; }
+.nav-links { display: flex; list-style: none; gap: 25px; flex: 2; justify-content: center; padding: 0; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 600; }
+.nav-spacer { flex: 1; }
+
+/* Megamenu Container */
+.dropdown {
+    position: static; /* Required for full-width megamenu */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%; /* Full width like Apple's site */
+    background: #fff;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    padding: 40px 10%;
+    z-index: 1000;
+    border-top: 1px solid #f2f2f2;
+}
+
+/* Horizontal Column Layout */
+.megamenu-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Category Headers (e.g., Sewing Machines, Fans) */
+.megamenu-column h3 {
+    font-size: 0.8rem;
+    color: #86868b; /* Apple-style muted gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.megamenu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.megamenu-column li {
+    margin-bottom: 12px;
+}
+
+.megamenu-column a {
+    font-size: 1.5rem; /* Larger bold text for main sub-items */
+    font-weight: 600;
+    color: #1d1d1f;
+    transition: color 0.2s;
+}
+
+.megamenu-column a:hover {
+    color: #0066cc;
+}
+
+/* Apple-Style Strip */
+.category-strip { display: flex; justify-content: center; gap: 50px; padding: 40px 0; background: var(--apple-gray); }
+.cat-item { text-align: center; }
+.cat-item a { text-decoration: none; color: #1d1d1f; font-size: 0.85rem; font-weight: 500; }
+.cat-circle { width: 100px; height: 100px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.cat-circle img { width: 70%; object-fit: contain; }
+
+/* Carousel & Content 
+.carousel-container { position: relative; height: 450px; overflow: hidden; background: #000; }
+.slide { display: none; width: 100%; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.container { padding: 50px 10%; text-align: center; }
+.legacy-img { width: 100%; max-width: 900px; border-radius: 10px; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.fade { animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+.footer { background: #111; color: #fff; padding: 40px; text-align: center; }
+/* Product Showcase Grid */
+.product-info-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 40px;
+    padding: 40px 0;
+    align-items: center;
+}*/
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;      /* Responsive 16:9 */
+    max-height: 650px;         /* Optional */
+    overflow: hidden;
+    background: #000;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* Shows the complete image */
+    object-position: center;   /* Keeps image centered */
+    display: block;
+}
+
+/* ===========================
+   General Content
+=========================== */
+
+.container {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.legacy-img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.fade {
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+/* ===========================
+   Product Showcase Grid
+=========================== */
+
+.product-info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 0;
+    align-items: center;
+}
+
+
+
+.product-image-box {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.product-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+/* Ensure the Legacy Photo looks premium */
+.legacy-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 60px 10% 20px;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand img {
+    height: 60px;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1); /* Optional: makes logo white for dark footer */
+}
+
+.footer-contact h4, .footer-social h4 {
+    color: #ff6600; /* Matching your orange theme */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.footer-contact a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25d366; /* WhatsApp Green */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+
+    .social-top-right {
+    position: absolute;
+    top: 20px;
+    right: 5%; /* Aligns it with your page margins */
+    display: flex;
+    gap: 15px;
+    z-index: 1000; /* Ensures it stays above the carousel */
+}
+
+.social-icon img {
+    width: 24px; /* Professional, subtle size */
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect for a premium feel */
+.social-icon:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Mobile Responsive: Moves icons so they don't overlap the logo on small screens */
+@media (max-width: 600px) {
+    .social-top-right {
+        top: 10px;
+        right: 10px;
+        gap: 10px;
+    }
+    .social-icon img {
+        width: 20px;
+        height: 20px;
+    }
+}
+/* Container for the map in the footer */
+.footer-map-box {
+    margin-top: 20px;
+    max-width: 280px; /* Keeps it from being too wide */
+}
+
+/* Style for the 'Get Directions' text */
+.map-link {
+    display: block;
+    margin-top: 8px;
+    color: #ff6600; /* Matching your orange theme */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the footer columns align to the top */
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.footer-brand {
+    flex: 1;
+    max-width: 300px; /* Adjust this if you want the map wider or narrower */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-map-box {
+    width: 100%;
+}
+
+.legacy-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    gap: 40px;
+}
+
+.legacy-section {
+    padding: 50px 5%;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px; /* Space between rows */
+    gap: 50px;
+}
